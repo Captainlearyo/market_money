@@ -11,27 +11,5 @@ class Market < ApplicationRecord
   validates_presence_of :lat
   validates_presence_of :lon
 
-  def vendor_count
-    self.vendors.count
-end
 
-def self.find_by_name(name)
-  self.where("name ILIKE '%' || ? || '%'", name)
-end
-
-def self.find_by_state(state)
-  self.where("state ILIKE '%' || ? || '%'", state)
-end
-
-def self.find_by_state_and_name(state, name)
-  self.where("state ILIKE '%' || ? || '%' AND name ILIKE '%' || ? || '%'", state, name)
-end
-
-def self.find_by_state_and_city(state, city)
-  self.where("state ILIKE '%' || ? || '%' AND city ILIKE '%' || ? || '%'", state, city)
-end
-
-def self.find_by_all(state, name, city)
-  self.where("state ILIKE '%' || ? || '%' AND name ILIKE '%' || ? || '%' AND city ILIKE '%' || ? || '%'", state, name, city)
-end
 end
